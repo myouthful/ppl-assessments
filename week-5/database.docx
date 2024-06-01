@@ -1,0 +1,16 @@
+-- Create a new database called 'StudentsDB'
+CREATE DATABASE IF NOT EXISTS StudentsDB;
+
+-- Select the 'StudentsDB' database for use
+USE StudentsDB;
+
+-- Create a new table called 'Students'
+CREATE TABLE IF NOT EXISTS Students (
+    StudentID INT AUTO_INCREMENT,
+    FirstName VARCHAR(255),
+    LastName VARCHAR(255),
+    DateOfBirth DATE,
+    Email VARCHAR(255),
+    Major VARCHAR(255),
+    PRIMARY KEY (StudentID)
+);
