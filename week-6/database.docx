@@ -1,0 +1,54 @@
+-- Create a new database called 'UniversityDB'
+CREATE DATABASE IF NOT EXISTS UniversityDB;
+
+-- Select the 'UniversityDB' database for use
+USE UniversityDB;
+
+-- Create a new table called 'Students'
+CREATE TABLE IF NOT EXISTS Students (
+    StudentID INT AUTO_INCREMENT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Age INT,
+    Major VARCHAR(50),
+    PRIMARY KEY (StudentID)
+);
+
+-- Insert sample records into the 'Students' table
+INSERT INTO Students (FirstName, LastName, Age, Major) VALUES
+('John', 'Doe', 20, 'Computer Science'),
+('Jane', 'Smith', 22, 'Mathematics'),
+('Alice', 'Johnson', 19, 'Physics'),
+('Bob', 'Brown', 21, 'Chemistry'),
+('Charlie', 'Davis', 23, 'Biology');
+
+-- Alter the 'Students' table to add a new column named 'GPA'
+ALTER TABLE Students ADD GPA DECIMAL(3, 2);
+
+-- Insert GPA values for the existing records in the 'Students' table
+UPDATE Students SET GPA = 3.5 WHERE StudentID = 1;
+UPDATE Students SET GPA = 3.7 WHERE StudentID = 2;
+UPDATE Students SET GPA = 3.9 WHERE StudentID = 3;
+UPDATE Students SET GPA = 3.6 WHERE StudentID = 4;
+UPDATE Students SET GPA = 3.8 WHERE StudentID = 5;
+
+-- Rename the table from 'Students' to 'EnrolledStudents'
+RENAME TABLE Students TO EnrolledStudents;
+
+-- Create a new table named 'Courses'
+CREATE TABLE IF NOT EXISTS Courses (
+    CourseID INT AUTO_INCREMENT,
+    CourseName VARCHAR(100),
+    Instructor VARCHAR(100),
+    Credits INT,
+    PRIMARY KEY (CourseID)
+);
+
+-- Insert sample records into the 'Courses' table
+INSERT INTO Courses (CourseName, Instructor, Credits) VALUES
+('Introduction to Programming', 'Dr. James Lee', 4),
+('Advanced Mathematics', 'Dr. Emily Taylor', 3),
+('Principles of Physics', 'Dr. Richard Davis', 4);
+
+-- Drop the 'EnrolledStudents' table from the database
+DROP TABLE IF EXISTS EnrolledStudents;
